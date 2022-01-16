@@ -1,0 +1,56 @@
+<html>
+
+	<body>
+	
+		<canvas id="myCanvas" width="1000" height="1200">
+		
+		</canvas>
+	
+	</body>
+	
+	
+	<script>
+	
+	var x = 0
+	
+	function init(){
+	window.requestAnimationFrame(loop);
+	}
+	
+	function loop(){
+	
+		var canvas = document.getElementById("myCanvas"); // from this document, get the html element by the id myCanvas
+		var drawingcontext = canvas.getContext("2d");
+		drawingcontext.globalCompositeOperation = 'destination-over';
+		drawingcontext.clearRect(0, 0, 1000, 1200); //clear canvas
+		
+		drawingcontext.lineWidth = 2;
+		drawingcontext.strokeStyle = "black"; // setting the strokeStyle to orange
+		drawingcontext.beginPath(); // starts a path to draw
+		drawingcontext.moveTo(x, 0);
+		
+		
+		drawingcontext.lineTo(x+50, 50);
+		
+		drawingcontext.stroke(); // sets a stroke and puts a line
+	
+		x = x+1
+		
+		if (x>1000){
+		
+		x = 0
+		
+		}
+	
+	
+	
+		window.requestAnimationFrame(loop);
+	}
+	
+	init();
+	
+	</script>
+
+
+
+</html>
